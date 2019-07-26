@@ -12,11 +12,14 @@ signupForm.addEventListener('submit', (e) => {
 
             const modal = document.querySelector('#modal-signup');
             M.Modal.getInstance(modal).close();
+            signupForm.reset();
         })
         .catch(err => {
             if (err.code === 'auth/email-already-in-use') {
                 alert("Error: Email already in use");
-            } else {console.error(err);}
+            } else {
+                console.error(err);
+            }
             console.log(error.message);
         });
-})
+});
